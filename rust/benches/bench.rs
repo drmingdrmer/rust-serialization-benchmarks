@@ -217,12 +217,12 @@ fn rmp_serde_deserialize(b: &mut Bencher) {
 }
 
 #[bench]
-fn rust_protobuf_populate(b: &mut Bencher) {
+fn protobuf_populate(b: &mut Bencher) {
     b.iter(|| protocol_protobuf::new_log());
 }
 
 #[bench]
-fn rust_protobuf_serialize(b: &mut Bencher) {
+fn protobuf_serialize(b: &mut Bencher) {
     let mut buf = Vec::new();
     let log = protocol_protobuf::new_log();
 
@@ -236,7 +236,7 @@ fn rust_protobuf_serialize(b: &mut Bencher) {
 }
 
 #[bench]
-fn rust_protobuf_deserialize(b: &mut Bencher) {
+fn protobuf_deserialize(b: &mut Bencher) {
     let log = protocol_protobuf::new_log();
     let buf = log.write_to_bytes().unwrap();
     b.bytes = buf.len() as u64;
@@ -249,7 +249,7 @@ fn rust_protobuf_deserialize(b: &mut Bencher) {
 }
 
 #[bench]
-fn rust_bincode_serialize(b: &mut Bencher) {
+fn bincode_serialize(b: &mut Bencher) {
     let mut buf = Vec::new();
     let log = Log::new();
 
@@ -263,7 +263,7 @@ fn rust_bincode_serialize(b: &mut Bencher) {
 }
 
 #[bench]
-fn rust_bincode_deserialize(b: &mut Bencher) {
+fn bincode_deserialize(b: &mut Bencher) {
     let buf = bincode::serialize(&Log::new()).unwrap();
     b.bytes = buf.len() as u64;
 

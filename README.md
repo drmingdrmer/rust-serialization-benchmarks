@@ -138,3 +138,52 @@ test goser::serde_json::bench_deserializer       ... bench:       4,726 ns/iter 
 test goser::serde_json::bench_populate           ... bench:         949 ns/iter (+/- 216)
 test goser::serde_json::bench_serializer         ... bench:       1,966 ns/iter (+/- 692) = 307 MB/s
 ```
+
+Rust, my update:
+
+```
+test bincode_deserialize               ... bench:         471 ns/iter (+/- 21) = 849 MB/s
+test bincode_serialize                 ... bench:          66 ns/iter (+/- 3) = 6060 MB/s
+
+test capnp_deserialize                 ... bench:         127 ns/iter (+/- 1) = 3527 MB/s
+test capnp_deserialize_packed          ... bench:         340 ns/iter (+/- 30) = 991 MB/s
+test capnp_populate                    ... bench:         274 ns/iter (+/- 163)
+test capnp_serialize                   ... bench:          17 ns/iter (+/- 2) = 26352 MB/s
+test capnp_serialize_packed            ... bench:         225 ns/iter (+/- 5) = 1497 MB/s
+
+test clone                             ... bench:         273 ns/iter (+/- 14) = 1919 MB/s
+
+test flatbuffers_deserialize           ... bench:           0 ns/iter (+/- 0) = 472000 MB/s
+test flatbuffers_populate_with_args    ... bench:         240 ns/iter (+/- 12)
+test flatbuffers_populate_with_builder ... bench:         208 ns/iter (+/- 3)
+test flatbuffers_serialize             ... bench:           0 ns/iter (+/- 0) = 472000 MB/s
+
+test protobuf_deserialize              ... bench:         292 ns/iter (+/- 20) = 979 MB/s
+test protobuf_populate                 ... bench:         297 ns/iter (+/- 24)
+test protobuf_serialize                ... bench:         257 ns/iter (+/- 33) = 1112 MB/s
+
+test rmp_serde_deserialize             ... bench:         559 ns/iter (+/- 13) = 513 MB/s
+test rmp_serde_serialize               ... bench:         146 ns/iter (+/- 5) = 1965 MB/s
+
+test serde_json_deserialize            ... bench:         856 ns/iter (+/- 30) = 706 MB/s
+test serde_json_serialize              ... bench:         472 ns/iter (+/- 5) = 1281 MB/s
+```
+
+
+
+```
+test bincode_serialize                 ... bench:          66 ns/iter (+/- 3) = 6060 MB/s
+test capnp_serialize                   ... bench:          17 ns/iter (+/- 2) = 26352 MB/s
+test protobuf_serialize                ... bench:         257 ns/iter (+/- 33) = 1112 MB/s
+test rmp_serde_serialize               ... bench:         146 ns/iter (+/- 5) = 1965 MB/s
+test serde_json_serialize              ... bench:         472 ns/iter (+/- 5) = 1281 MB/s
+```
+
+```
+test bincode_deserialize               ... bench:         471 ns/iter (+/- 21) = 849 MB/s
+test capnp_deserialize                 ... bench:         127 ns/iter (+/- 1) = 3527 MB/s
+test capnp_deserialize_packed          ... bench:         340 ns/iter (+/- 30) = 991 MB/s
+test protobuf_deserialize              ... bench:         292 ns/iter (+/- 20) = 979 MB/s
+test rmp_serde_deserialize             ... bench:         559 ns/iter (+/- 13) = 513 MB/s
+test serde_json_deserialize            ... bench:         856 ns/iter (+/- 30) = 706 MB/s
+```
